@@ -244,26 +244,3 @@ class ML_Algorithm:
             file.write(f"\nSum y_true: {test_syt}")
             file.write(f"\nSum y_pred: {test_syp}")
             file.write(f"\nPercentage Sum Error: {test_pse}")   
-
-if __name__ == "__main__":
-    model = ML_Algorithm(
-        model = 'Linear', # 'HistGradientBoosting_Regressor' or 'Linear'
-        outputfolder = r"PMF_Day_Breach_LR\\"
-        )
-
-    model.load_data(
-        train_data_csv = r"PMF_Day_Breach_5CombinedIte_data_split_train.csv", 
-        test_data_csv = r"PMF_Day_Breach_5CombinedIte_data_split_test.csv", 
-        filter_criteria = None,
-        fill_nodata = 0, 
-        numerical_cols = ['PopU65', 'PopO65', 'TimeWarned', 'TimeMobilized', 'Structure_Number_of_Stories', 'Fording_Depth',
-                          'Max_Depth', 'Max_Velocity', 'Max_DxV', 'Time_To_First_Wet'],
-        categorical_cols = ['Warned','Mobilized', 'Structure_Stability_Criteria', 'Vehicle_Type'],
-        idx_col = 'Index', 
-        ref_col = 'Total_Life_Loss', 
-        save_data = True,
-        name_convention = "LR_PMF_Day_Breach_5CombinedIte"
-    )     
-
-    model.perform_grid_search(kf_config = None, save_best_model = True, save_cv_results = True)
-    model.predict(round_integer = False, save_csv = True, save_log = True)

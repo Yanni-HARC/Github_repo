@@ -157,36 +157,6 @@ class LifeSim_Data:
         if split == True:
             self.split_and_write(df, processed_csv, proportion_train_split, random_state)
 
-        
-if __name__ == "__main__":
-    detailedOutput_csv_list = [
-        r"PMF_Day_Breach_Ite6_Detailed_Output_Results.csv",
-        r"PMF_Day_Breach_Ite251_Detailed_Output_Results.csv",
-        r"PMF_Day_Breach_Ite279_Detailed_Output_Results.csv",
-        r"PMF_Day_Breach_Ite393_Detailed_Output_Results.csv",
-        r"PMF_Day_Breach_Ite455_Detailed_Output_Results.csv",
-        ]
     
-    roadSummary_csv = r"PMF_Day_Breach_Road_Summary.csv"
-    structureSummary_csv = r"PMF_Day_Breach_Structure_Summary.csv"
-    
-    processed_csv = r'PMF_Day_Breach_5CombinedIte_data.csv'
-
-    data = LifeSim_Data(roadSummary_csv, structureSummary_csv)
-    df = data.concat_output(detailedOutput_csv_list)
-
-    structure_stability_dict = {
-        'Masonry': 1,
-        'Wood-Anchored': 2,
-        'Manufactured': 3
-    }
-    vehicle_type_dict = {
-        'High Clearance': 1,
-        'Low Clearance': 2
-    }    
-
-    df['Structure_Stability_Criteria'] = df['Structure_Stability_Criteria'].replace(structure_stability_dict)
-    df['Vehicle_Type'] = df['Vehicle_Type'].replace(vehicle_type_dict)
-    data.write_csv_w_split(df, processed_csv, split = True)
 
 

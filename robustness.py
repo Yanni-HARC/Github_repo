@@ -107,25 +107,3 @@ class Validation:
             self.write_csv(y_pred)
         if save_log == True:
             self.write_results_log(mae, rmse, r2, syt, syp, pse)
-
-if __name__ == "__main__":
-    gs = Validation(
-        modelfolder = r"PMF_Day_Breach_LR\\", 
-        model_name_convention = "LR_PMF_Day_Breach_5CombinedIte"
-    )
-    
-    gs.load_data(
-        validation_data_csv = r"PMF_Day_lowBreach_Ite298_data.csv", 
-        outputfolder = r"PMF_Day_Breach_LR\\",
-        filter_criteria = None,
-        fill_nodata = 0, 
-        numerical_cols = ['PopU65', 'PopO65', 'TimeWarned', 'TimeMobilized', 'Structure_Number_of_Stories', 'Fording_Depth',
-                          'Max_Depth', 'Max_Velocity', 'Max_DxV', 'Time_To_First_Wet'],
-        categorical_cols = ['Warned','Mobilized', 'Structure_Stability_Criteria', 'Vehicle_Type'],
-        idx_col = 'Index', 
-        ref_col = 'Total_Life_Loss', 
-        save_data = True,
-        validation_name_convention = "PMF_Day_lowBreach_Ite298",        
-    )
-      
-    gs.predict(round_integer = False, save_csv = True, save_log = True)
