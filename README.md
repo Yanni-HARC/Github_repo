@@ -166,4 +166,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 For any questions or feedback, feel free to reach out to:
-:email: Yanni Wang - yanni.wang@harc.com.au
+Yanni Wang - yanni.wang@harc.com.au
