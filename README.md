@@ -21,11 +21,11 @@ Identify key factors influencing Potential Loss of Life (PLL) estimates, support
 Before you begin, make sure you have the following installed:
 - :snake: Python 3.11+
 - :package: Necessary dependencies listed in requirements.txt
-    - numpy for numerical operations
-    - pandas for data processing
-    - sklearn for machine learning model development
-    - shap for model interpretation
-    - matplotlib for figure plotting
+    - `numpy` for numerical operations
+    - `pandas` for data processing
+    - `sklearn` for machine learning model development
+    - `shap` for model interpretation
+    - `matplotlib` for figure plotting
 
 ### Installation
 Clone the repository:
